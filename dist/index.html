@@ -6,55 +6,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chart test for unemployment hysteresis</title>
-    <script type="module" src="../chart.ts"></script>
-    <style>
-        #container {
-            width: 80vw;
-            margin: auto;
-            height: 100%;
-            position: relative;
-        }
+    <script src="/index.925a6107.js" defer=""></script>
+    <style>#container {
+  width: 80vw;
+  height: 100%;
+  margin: auto;
+  position: relative;
+}
 
+#chart-1 {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  bottom: auto;
+  left: 0;
+  transform: translate3d(0, 0, 0);
+}
 
-        #chart-1 {
-            position: sticky;
-            top: 0;
-            left: 0;
-            bottom: auto;
-            width: 100%;
-            -webkit-transform: translate3d(0, 0, 0);
-            -moz-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-        }
+#chart-1 .chart {
+  position: absolute;
+  right: 1rem;
+}
 
-        #chart-1 .chart {
-            position: absolute;
-            right: 1rem;
-        }
+#chart-1.is-fixed {
+  position: fixed;
+}
 
-        #chart-1.is-fixed {
-            position: fixed;
-        }
+#chart-1.is-bottom {
+  top: auto;
+  bottom: 0;
+}
 
-        #chart-1.is-bottom {
-            bottom: 0;
-            top: auto;
-        }
+#text-container {
+  max-width: 30rem;
+  padding: 0 1rem;
+}
 
-        #text-container {
-            padding: 0 1rem;
-            max-width: 30rem;
-        }
+.step {
+  opacity: 0;
+  padding: 1rem;
+}
 
-        .step {
-            opacity: 0;
-            padding: 1rem;
-        }
+.step.is-active {
+  opacity: 1;
+}
 
-        .step.is-active {
-            opacity: 1;
-        }
-    </style>
+</style>
 </head>
 
 <body>

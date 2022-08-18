@@ -1,0 +1,7 @@
+{
+    "extends": ["@parcel/config-default"],
+    "transformers": {
+        "url:*.csv": ["@parcel/transformer-raw"],
+        "unemployment-hysteresis/testground/blog-post/*.css": ["@parcel/transformer-raw"]
+    }
+}

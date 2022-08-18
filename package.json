@@ -1,0 +1,42 @@
+{
+  "name": "blog-posts",
+  "version": "0.0.1",
+  "description": "blog posts for cronco.me",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cronco/blog-posts.git"
+  },
+  "keywords": [
+    "posts",
+    "visualisations"
+  ],
+  "author": "Mihai Chereji",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/cronco/blog-posts/issues"
+  },
+  "homepage": "https://github.com/cronco/blog-posts#readme",
+  "devDependencies": {
+    "@parcel/packager-raw-url": "^2.7.0",
+    "@parcel/transformer-jsonld": "^2.7.0",
+    "@types/deepmerge": "^2.2.0",
+    "@types/papaparse": "^5.3.3",
+    "parcel": "^2.7.0",
+    "parcel-reporter-static-files-copy": "^1.4.0"
+  },
+  "dependencies": {
+    "@observablehq/plot": "^0.5.2",
+    "d3": "^7.6.1",
+    "deepmerge": "^4.2.2",
+    "htl": "^0.3.1",
+    "intersection-observer": "^0.12.2",
+    "lodash": "^4.17.21",
+    "papaparse": "^5.3.2",
+    "scrollama": "^3.2.0",
+    "serve-static": "^1.15.0"
+  }
+}
