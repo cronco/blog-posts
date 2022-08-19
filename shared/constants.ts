@@ -1,26 +1,6 @@
 import { ParseRemoteConfig } from 'papaparse';
+import { PlotOptions } from './types';
 
-interface MarkOption {
-
-}
-
-interface PlotStyleOptions {
-    [key: string]: string | number;
-}
-
-interface PlotOptions {
-    style: PlotStyleOptions;
-    className?: string;
-    ariaLabel: string;
-    ariaDescription: string;
-    facet: object;
-    marks: MarkOption[];
-    marginLeft: number | string;
-    marginRight: number | string;
-    marginBottom: number | string;
-    marginTop: number | string;
-    color: object;
-}
 
 export const colors = [
     '#32ADC4',
@@ -52,5 +32,6 @@ export const defaultLegendConfig = {
     style: {
         fontFamily: "Segoe UI",
         fontWeight: "bold",
+        fontSize: "12px",
     }
 }
