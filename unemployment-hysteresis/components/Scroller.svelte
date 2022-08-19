@@ -7,7 +7,7 @@ let scroller = scrollama();
 export let stepSelector = '.step';
 export let debug = false;
 export let steps: string[];
-export let activeStep = 0;
+export let activeStep = -1;
 let scrollContainer;
 let innerWindowHeight: number = 0;
 
