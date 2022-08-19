@@ -3,7 +3,7 @@ import { CallbackResponse } from 'scrollama';
 import { html } from 'htl';
 import * as Plot from "@observablehq/plot";
 import { defaultChartConfig, defaultLegendConfig } from '../shared/constants';
-import { MarkOptions, PlotOptions } from '../shared/types';
+import { Mark, MarkOptions, PlotOptions } from '../shared/types';
 import { ExpandedLFP, ParsedLFP, selectedCountryCodes } from './type-expansions';
 
 export const parseFemaleDataParticipation = (data: ParsedLFP[]) => {
@@ -61,7 +61,7 @@ function handleStepEnter(response: CallbackResponse) {
     console.log("step enter", arguments);
 }
 
-export function generateChartOptions(data: ExpandedLFP[], filtering: boolean) {
+export function generateChartOptions(data: ExpandedLFP[], filtering: boolean, activeStep: number = 0) {
     const chartOptions: Partial<PlotOptions> = {
         ...defaultChartConfig,
         x: {
@@ -76,7 +76,7 @@ export function generateChartOptions(data: ExpandedLFP[], filtering: boolean) {
             tickPadding: 10,
             bar: true,
             grid: true,
-            label: data ? data[0]["Indicator Name"] : "lfp",
+            label: data.length ? data[0]["Indicator Name"] : "lfp",
             tickFormat: d => `${d} %`
         },
         style: {
@@ -92,19 +92,18 @@ export function generateChartOptions(data: ExpandedLFP[], filtering: boolean) {
                 x: "date",
                 y: "lfp",
                 stroke: "#eee",
-                filter: (d => !selectedCountryCodes.includes(d["Country Code"])),
-            } as MarkOptions) as unknown as Mark,
+            } as MarkOptions),
             Plot.line(data, {
                 x: "date",
                 y: "lfp",
-                stroke: filtering ? "Country Code" : "#eee",
-                filter: filtering ? (d => selectedCountryCodes.includes(d["Country Code"])) : null,
+                stroke: "Country Code",
+                filter: filtering ? (d => selectedCountryCodes.slice(0, activeStep).includes(d["Country Code"])) : null,
             } as MarkOptions),
             Plot.dot(data, {
                 x: "date",
                 y: "lfp",
                 stroke: filtering ? "Country Code" : "#eee",
-                filter: filtering && (d => selectedCountryCodes.includes(d["Country Code"]))
+                filter: activeStep && (d => selectedCountryCodes.slice(0, activeStep).includes(d["Country Code"]))
             } as MarkOptions)
         ]
     };

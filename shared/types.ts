@@ -29,7 +29,7 @@ export interface PlotOptions {
     ariaLabel: string;
     ariaDescription: string;
     facet: object;
-    marks: Mark[];
+    marks: any[];
     marginLeft: number | string;
     marginRight: number | string;
     marginBottom: number | string;
